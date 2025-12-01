@@ -1,0 +1,15 @@
+resource "azurerm_management_group" "root" {
+  name         = "mg-root"
+  display_name = "Root Management Group"
+}
+
+resource "azurerm_management_group" "landing_zone" {
+  name         = "mg-landing-zone"
+  display_name = "Landing Zone Group"
+  parent_management_group_id = azurerm_management_group.root.id
+}
+
+resource "azurerm_management_group_subscription_association" "subscription" {
+  management_group_id = azurerm_management_group.landing_zone.id
+  subscription_id      = "/subscriptions/${var.subscription_id}"
+}
