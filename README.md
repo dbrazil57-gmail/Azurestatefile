@@ -25,7 +25,7 @@ Requires: the name of storage account created in First Terraform apply
 Uncomment the remote backend(.tf) sections (bootstrap) and update storage_account_name therein and add same to variable.tf.
 terraform init -migrate-state
 test: terraform plan -out=tfplan
-# Third terrafrom apply
+# Third terraform apply
 Note: Add extra Azure resources, keyvault, roles etc
 rename bootstrap.tf to bootstrap.before3rd
 rename bootstrap.beforemain to bootstrap.tf
